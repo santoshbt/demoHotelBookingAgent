@@ -2,31 +2,19 @@ from dotenv import load_dotenv
 import json
 import logging
 import logging.config
-import os
 import re
 from services import bedrock_agent_runtime
 import streamlit as st
 import uuid
 import yaml
-
-load_dotenv()
-
-# Configure logging using YAML
-if os.path.exists("logging.yaml"):
-    with open("logging.yaml", "r") as file:
-        config = yaml.safe_load(file)
-        logging.config.dictConfig(config)
-else:
-    log_level = logging.getLevelNamesMapping()[(os.environ.get("LOG_LEVEL", "INFO"))]
-    logging.basicConfig(level=log_level)
-
-logger = logging.getLogger(__name__)
+import logging
+import os
 
 # Get config from environment variables
-agent_id = os.environ.get("BEDROCK_AGENT_ID")
-agent_alias_id = os.environ.get("BEDROCK_AGENT_ALIAS_ID", "TSTALIASID")  # TSTALIASID is the default test alias ID
-ui_title = os.environ.get("BEDROCK_AGENT_TEST_UI_TITLE", "Welcome to Hotel Booking Agent")
-ui_icon = os.environ.get("BEDROCK_AGENT_TEST_UI_ICON")
+agent_id = 'IQOT5T3QWG'        #4 Add Agent ID
+agent_alias_id = 'O9GXKBDISP'  #5 Add Agent Alias ID
+ui_title =  "Welcome to Hotel Booking Agent"
+ui_icon = "BEDROCK_AGENT_TEST_UI_ICON"
 
 
 def init_session_state():
