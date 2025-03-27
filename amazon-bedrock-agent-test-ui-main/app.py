@@ -11,8 +11,8 @@ import logging
 import os
 
 # Get config from environment variables
-agent_id = 'IQOT5T3QWG'        #4 Add Agent ID
-agent_alias_id = 'O9GXKBDISP'  #5 Add Agent Alias ID
+agent_id = os.environ["AGENT_ID"]        #4 Add Agent ID
+agent_alias_id =  os.environ["AGENT_ALIAS_ID"]  #5 Add Agent Alias ID
 ui_title =  "Welcome to Hotel Booking Agent"
 ui_icon = "BEDROCK_AGENT_TEST_UI_ICON"
 
